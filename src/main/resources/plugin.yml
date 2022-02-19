@@ -1,0 +1,6 @@
+name: Kipooo
+version: '${version}'
+main: online.kcds.kipooo.Kipooo
+api-version: 1.18
+authors: [ Kcds ]
+description: A complex plugin

@@ -1,0 +1,6 @@
+modules:
+  here:
+    description: "&8| &f!here &7- &f向全服显示您当前的位置."
+    usage: "!here"
+    message: "&8| &f%player%处于&7[&fX: &a%player_X% &8, &fY: &a%player_Y% &8, &fZ: &a%player_Z%&7] &f所处世界: &7%player_World%"
+    enable: true

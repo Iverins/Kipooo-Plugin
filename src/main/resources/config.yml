@@ -1,3 +1,10 @@
+langs:
+  kick-whitelist: "&c* &7请先加群:&f481121567&7申请白名单."
+  kick-banned: "&c* &7嘿，您还回来干嘛?"
+  banned-login: "&8| &f%player%尝试登录KIVO COMMUNITY SERVER."
+options:
+  default-player: Notch
+  default-world: world
 modules:
   here:
     description: "&8| &f!here &7- &f向全服显示您当前的位置."
@@ -9,19 +16,3 @@ modules:
     usage: "!save "
     message: "&8| &f成功保存坐标."
     enable: true
-  mention:
-    description: "&8| &f@[玩家名] &7- &f艾特指定的玩家."
-    usage: "@"
-    message: ""
-    title: "&6&l有人@你"
-    subTitle: "&7%player%提到了你."
-    action: "%player%提到了你."
-    fadeIn: 20
-    stay: 20
-    fadeOut: 20
-  scoreboard:
-    description: "&8| &f!open &7- &f打开记分板.\n&8| &f!close &7- &f关闭记分板."
-    open: "!open"
-    close: "!close"
-    enable-message: "&8| &f记分板已开启."
-    disable-message: "&8| &f记分板已关闭."

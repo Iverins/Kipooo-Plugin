@@ -24,17 +24,21 @@ public class PlayerData implements PersistentDataType<PersistentDataContainer , 
     private Player player;
     private Location playerDeathLoc;
     private Location homeLoc;
-    private File playerLangFile;
     private boolean scoreBoard;
     private boolean dnd;
 
-    public PlayerData() {}
+    public PlayerData() {
+        this.player = null;
+        this.playerDeathLoc = null;
+        this.homeLoc = null;
+        this.scoreBoard = false;
+        this.dnd = false;
+    }
 
-    public PlayerData(Player player , Location playerDeathLoc , Location homeLoc , File playerLangFile , boolean scoreBoard , boolean dnd) {
+    public PlayerData(Player player , Location playerDeathLoc , Location homeLoc , boolean scoreBoard , boolean dnd) {
         this.player = player;
         this.playerDeathLoc = playerDeathLoc;
         this.homeLoc = homeLoc;
-        this.playerLangFile = playerLangFile;
         this.scoreBoard = scoreBoard;
         this.dnd = dnd;
     }
@@ -55,10 +59,6 @@ public class PlayerData implements PersistentDataType<PersistentDataContainer , 
         this.homeLoc = homeLoc;
     }
 
-    public void setPlayerLangFile(File playerLangFile) {
-        this.playerLangFile = playerLangFile;
-    }
-
     public void setScoreBoard(boolean scoreBoard) {
         this.scoreBoard = scoreBoard;
     }
@@ -77,10 +77,6 @@ public class PlayerData implements PersistentDataType<PersistentDataContainer , 
 
     public Location getHomeLoc() {
         return homeLoc;
-    }
-
-    public File getPlayerLangFile() {
-        return playerLangFile;
     }
 
     public boolean isScoreBoard() {
@@ -108,7 +104,7 @@ public class PlayerData implements PersistentDataType<PersistentDataContainer , 
                 pd,
                 PlayerData.INSTANCE,
                 new PlayerData(
-                        complex.getPlayer(), complex.getPlayerDeathLoc(), complex.getHomeLoc(), complex.getPlayerLangFile(), complex.isScoreBoard(), complex.isDnd()
+                        complex.getPlayer(), complex.getPlayerDeathLoc(), complex.getHomeLoc(), complex.isScoreBoard(), complex.isDnd()
                 )
         );
         return container;

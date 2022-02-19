@@ -4,10 +4,13 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import online.kcds.kipooo.event.PlayerEvents;
+import online.kcds.kipooo.modules.EssentialsModules;
+import online.kcds.kipooo.player.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -58,6 +61,9 @@ public final class Kipooo extends JavaPlugin {
         save = YamlConfiguration.loadConfiguration(saveFile);
         Kipooo.sendConsole("已加载完毕保存文件.");
         Bukkit.getPluginManager().registerEvents(new PlayerEvents() , Kipooo.INSTANCE);
+        for (Listener module : EssentialsModules.modules) {
+            Bukkit.getPluginManager().registerEvents(module , Kipooo.INSTANCE);
+        }
         Kipooo.sendConsole("已加载监听器.");
     }
 
@@ -85,7 +91,7 @@ public final class Kipooo extends JavaPlugin {
     }
 
     /**
-     * 以免打扰形式给所有在线玩家发送TITLE
+     * 给所有未开启免打扰的在线玩家发送TITLE
      * @param title 主标题
      * @param subTitle 子标题
      * @param fadeIn 淡入
@@ -93,7 +99,16 @@ public final class Kipooo extends JavaPlugin {
      * @param fadeOut 淡出
      */
     public static void sendTitleOnlineAsDND(String title , String subTitle , int fadeIn , int stay , int fadeOut) {
-
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            if (!online.getPersistentDataContainer().get(
+                    PlayerData.pd ,
+                    PlayerData.INSTANCE
+            ).isDnd()) {
+                online.sendTitle(Kipooo.toColor(title) ,
+                        Kipooo.toColor(subTitle) ,
+                        fadeIn , stay , fadeOut);
+            }
+        }
     }
 
     /**
@@ -105,6 +120,20 @@ public final class Kipooo extends JavaPlugin {
             online.spigot().sendMessage(ChatMessageType.ACTION_BAR ,
                     new TextComponent(Kipooo.toColor(text)));
         }
+    }
+
+    /**
+     * 替换玩家变量
+     * @param player 玩家
+     * @param text 文本
+     * @return 替换后的文本
+     */
+    public static String replacePlayer(Player player , String text) {
+        return text.replaceAll("%player%" , player.getName())
+                .replaceAll("%player_X%" , String.valueOf(player.getLocation().getBlockX()))
+                .replaceAll("%player_Y" , String.valueOf(player.getLocation().getBlockY()))
+                .replaceAll("%player_Z" , String.valueOf(player.getLocation().getBlockZ()))
+                .replaceAll("%player_World" , String.valueOf(player.getLocation().getWorld().getName()));
     }
 
     /**

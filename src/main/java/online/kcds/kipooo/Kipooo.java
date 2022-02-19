@@ -35,9 +35,9 @@ public final class Kipooo extends JavaPlugin {
     public void onLoad() {
         langDataFolder = new File(this.getDataFolder() , "lang-data");
         if (!langDataFolder.exists()) {
-            Kipooo.sendConsole("æ­£åœ¨åˆ›å»ºç©å®¶è‡ªå®šä¹‰è¯­è¨€æ–‡ä»¶.");
+            Kipooo.sendConsole("ÕıÔÚ´´½¨Íæ¼Ò×Ô¶¨ÒåÓïÑÔÎÄ¼ş.");
             if (langDataFolder.mkdirs()) {
-                Kipooo.sendConsole("&cç©å®¶è‡ªå®šä¹‰è¯­è¨€æ–‡ä»¶åˆ›å»ºå¤±è´¥ï¼Œå·²å…³é—­è‡ªå®šä¹‰è¯­è¨€ç³»ç»Ÿ.");
+                Kipooo.sendConsole("&cÍæ¼Ò×Ô¶¨ÒåÓïÑÔÎÄ¼ş´´½¨Ê§°Ü£¬ÒÑ¹Ø±Õ×Ô¶¨ÒåÓïÑÔÏµÍ³.");
                 customLang = false;
             }
         }
@@ -45,11 +45,11 @@ public final class Kipooo extends JavaPlugin {
         configFile = new File(this.getDataFolder() , "config.yml");
         saveFile = new File(this.getDataFolder() , "save.yml");
         if (!configFile.exists()) {
-            Kipooo.sendConsole("æ­£åœ¨åˆ›å»ºé…ç½®æ–‡ä»¶.");
+            Kipooo.sendConsole("ÕıÔÚ´´½¨ÅäÖÃÎÄ¼ş.");
             this.saveResource("config.yml" , true);
         }
         if (!saveFile.exists()) {
-            Kipooo.sendConsole("æ­£åœ¨åˆ›å»ºä¿å­˜æ–‡ä»¶.");
+            Kipooo.sendConsole("ÕıÔÚ´´½¨±£´æÎÄ¼ş.");
             this.saveResource("save.yml" , true);
         }
     }
@@ -57,30 +57,30 @@ public final class Kipooo extends JavaPlugin {
     @Override
     public void onEnable() {
         config = YamlConfiguration.loadConfiguration(configFile);
-        Kipooo.sendConsole("å·²åŠ è½½å®Œæ¯•é…ç½®æ–‡ä»¶.");
+        Kipooo.sendConsole("ÒÑ¼ÓÔØÍê±ÏÅäÖÃÎÄ¼ş.");
         save = YamlConfiguration.loadConfiguration(saveFile);
-        Kipooo.sendConsole("å·²åŠ è½½å®Œæ¯•ä¿å­˜æ–‡ä»¶.");
+        Kipooo.sendConsole("ÒÑ¼ÓÔØÍê±Ï±£´æÎÄ¼ş.");
         Bukkit.getPluginManager().registerEvents(new PlayerEvents() , Kipooo.INSTANCE);
         for (Listener module : EssentialsModules.modules) {
             Bukkit.getPluginManager().registerEvents(module , Kipooo.INSTANCE);
         }
-        Kipooo.sendConsole("å·²åŠ è½½ç›‘å¬å™¨.");
+        Kipooo.sendConsole("ÒÑ¼ÓÔØ¼àÌıÆ÷.");
     }
 
     @Override
     public void onDisable() {
-        Kipooo.sendConsole("æ’ä»¶å·²å¸è½½.");
+        Kipooo.sendConsole("²å¼şÒÑĞ¶ÔØ.");
         Bukkit.clearRecipes();
-        Kipooo.sendConsole("å·²æ¸…ç©ºåˆæˆè¡¨.");
+        Kipooo.sendConsole("ÒÑÇå¿ÕºÏ³É±í.");
     }
 
     /**
-     * ç»™æ‰€æœ‰åœ¨çº¿ç©å®¶å‘é€TITLE
-     * @param title ä¸»æ ‡é¢˜
-     * @param subTitle å­æ ‡é¢˜
-     * @param fadeIn æ·¡å…¥
-     * @param stay ä¿ç•™
-     * @param fadeOut æ·¡å‡º
+     * ¸øËùÓĞÔÚÏßÍæ¼Ò·¢ËÍTITLE
+     * @param title Ö÷±êÌâ
+     * @param subTitle ×Ó±êÌâ
+     * @param fadeIn µ­Èë
+     * @param stay ±£Áô
+     * @param fadeOut µ­³ö
      */
     public static void sendTitleOnline(String title , String subTitle , int fadeIn , int stay , int fadeOut) {
         for (Player online : Bukkit.getOnlinePlayers()) {
@@ -91,12 +91,12 @@ public final class Kipooo extends JavaPlugin {
     }
 
     /**
-     * ç»™æ‰€æœ‰æœªå¼€å¯å…æ‰“æ‰°çš„åœ¨çº¿ç©å®¶å‘é€TITLE
-     * @param title ä¸»æ ‡é¢˜
-     * @param subTitle å­æ ‡é¢˜
-     * @param fadeIn æ·¡å…¥
-     * @param stay ä¿ç•™
-     * @param fadeOut æ·¡å‡º
+     * ¸øËùÓĞÎ´¿ªÆôÃâ´òÈÅµÄÔÚÏßÍæ¼Ò·¢ËÍTITLE
+     * @param title Ö÷±êÌâ
+     * @param subTitle ×Ó±êÌâ
+     * @param fadeIn µ­Èë
+     * @param stay ±£Áô
+     * @param fadeOut µ­³ö
      */
     public static void sendTitleOnlineAsDND(String title , String subTitle , int fadeIn , int stay , int fadeOut) {
         for (Player online : Bukkit.getOnlinePlayers()) {
@@ -112,8 +112,8 @@ public final class Kipooo extends JavaPlugin {
     }
 
     /**
-     * ç»™æ‰€æœ‰ç©å®¶å‘é€ACTIONBAR
-     * @param text å†…å®¹
+     * ¸øËùÓĞÍæ¼Ò·¢ËÍACTIONBAR
+     * @param text ÄÚÈİ
      */
     public static void sendActionBarOnline(String text) {
         for (Player online : Bukkit.getOnlinePlayers()) {
@@ -123,10 +123,10 @@ public final class Kipooo extends JavaPlugin {
     }
 
     /**
-     * æ›¿æ¢ç©å®¶å˜é‡
-     * @param player ç©å®¶
-     * @param text æ–‡æœ¬
-     * @return æ›¿æ¢åçš„æ–‡æœ¬
+     * Ìæ»»Íæ¼Ò±äÁ¿
+     * @param player Íæ¼Ò
+     * @param text ÎÄ±¾
+     * @return Ìæ»»ºóµÄÎÄ±¾
      */
     public static String replacePlayer(Player player , String text) {
         return text.replaceAll("%player%" , player.getName())
@@ -137,17 +137,17 @@ public final class Kipooo extends JavaPlugin {
     }
 
     /**
-     * ä»¥åå°çš„èº«ä»½å‘é€æ¶ˆæ¯
-     * @param text æ¶ˆæ¯
+     * ÒÔºóÌ¨µÄÉí·İ·¢ËÍÏûÏ¢
+     * @param text ÏûÏ¢
      */
     public static void sendConsole(String text) {
         Bukkit.getConsoleSender().sendMessage(Kipooo.toColor("&d&lKipooo &7| &f" + text));
     }
 
     /**
-     * è½¬æ¢ä¸ºå¸¦æœ‰é¢œè‰²çš„æ–‡æœ¬
-     * @param text æ–‡æœ¬
-     * @return å¸¦æœ‰é¢œè‰²çš„æ–‡æœ¬
+     * ×ª»»Îª´øÓĞÑÕÉ«µÄÎÄ±¾
+     * @param text ÎÄ±¾
+     * @return ´øÓĞÑÕÉ«µÄÎÄ±¾
      */
     public static String toColor(String text) {
         return ChatColor.translateAlternateColorCodes('&' , text);

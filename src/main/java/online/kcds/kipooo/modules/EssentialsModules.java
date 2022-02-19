@@ -13,16 +13,16 @@ public interface EssentialsModules {
     String getModuleName();
 
     /**
-     * æ˜¯å¦å¯ç”¨è¯¥æ¨¡å—
-     * @return æ¨¡å—æ˜¯å¦å¯ç”¨
+     * ÊÇ·ñÆôÓÃ¸ÃÄ£¿é
+     * @return Ä£¿éÊÇ·ñÆôÓÃ
      */
     default boolean isEnable() {
         return Kipooo.INSTANCE.config.getBoolean("modules." + getModuleName() + ".enable");
     }
 
     /**
-     * è¿”å›æ¨¡å—æè¿°
-     * @return æ¨¡å—æè¿°
+     * ·µ»ØÄ£¿éÃèÊö
+     * @return Ä£¿éÃèÊö
      */
     default String description() {
         return Kipooo.toColor(Kipooo.INSTANCE.config.getString("modules." + getModuleName() + ".description"));

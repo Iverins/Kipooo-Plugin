@@ -46,14 +46,14 @@ public class PlayerEvents implements Listener {
                 PlayerData.pd,
                 PlayerData.INSTANCE
         ).isScoreBoard()) {
-            // TODO è®°åˆ†æ¿æ˜¾ç¤º
+            // TODO ¼Ç·Ö°åÏÔÊ¾
         }
-        event.setJoinMessage(Kipooo.toColor("&7+ &f" + event.getPlayer().getName() + "è¿›å…¥KIVO COMMUNITY SERVER."));
+        event.setJoinMessage(Kipooo.toColor("&7+ &f" + event.getPlayer().getName() + "½øÈëKIVO COMMUNITY SERVER."));
     }
 
     @EventHandler
     public void quit(PlayerQuitEvent event) {
-        event.setQuitMessage(Kipooo.toColor("&7- &f" + event.getPlayer().getName() + "æ–­å¼€è¿æ¥."));
+        event.setQuitMessage(Kipooo.toColor("&7- &f" + event.getPlayer().getName() + "¶Ï¿ªÁ¬½Ó."));
     }
 
     @EventHandler

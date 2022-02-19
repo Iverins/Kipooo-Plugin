@@ -4,3 +4,24 @@ modules:
     usage: "!here"
     message: "&8| &f%player%处于&7[&fX: &a%player_X% &8, &fY: &a%player_Y% &8, &fZ: &a%player_Z%&7] &f所处世界: &7%player_World%"
     enable: true
+  save:
+    description: "&8| &f!save [坐标名] &7- &f将此处坐标保存至服务器文件."
+    usage: "!save "
+    message: "&8| &f成功保存坐标."
+    enable: true
+  mention:
+    description: "&8| &f@[玩家名] &7- &f艾特指定的玩家."
+    usage: "@"
+    message: ""
+    title: "&6&l有人@你"
+    subTitle: "&7%player%提到了你."
+    action: "%player%提到了你."
+    fadeIn: 20
+    stay: 20
+    fadeOut: 20
+  scoreboard:
+    description: "&8| &f!open &7- &f打开记分板.\n&8| &f!close &7- &f关闭记分板."
+    open: "!open"
+    close: "!close"
+    enable-message: "&8| &f记分板已开启."
+    disable-message: "&8| &f记分板已关闭."

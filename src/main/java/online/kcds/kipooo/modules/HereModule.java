@@ -3,10 +3,9 @@ package online.kcds.kipooo.modules;
 import online.kcds.kipooo.Kipooo;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class HereModule implements CommonModules , Listener {
+public class HereModule implements CommonModules{
 
     @Override
     public String getModuleName() {

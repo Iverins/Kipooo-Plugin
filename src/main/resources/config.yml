@@ -2,9 +2,13 @@ langs:
   kick-whitelist: "&c* &7请先加群:&f481121567&7申请白名单."
   kick-banned: "&c* &7嘿，您还回来干嘛?"
   banned-login: "&8| &f%player%尝试登录KIVO COMMUNITY SERVER."
+  join-message: "&7+ &f%player%进入KIVO COMMUNITY SERVER."
+  quit-message: "&7+ &f%player%断开连接."
 options:
-  default-player: Notch
-  default-world: world
+  world-alias:
+    world: "&a主世界"
+    world_nether: "&c下界"
+    world_the_end: "&7末地"
 modules:
   here:
     description: "&8| &f!here &7- &f向全服显示您当前的位置."
@@ -12,7 +16,10 @@ modules:
     message: "&8| &f%player%处于&7[&fX: &a%player_X% &8, &fY: &a%player_Y% &8, &fZ: &a%player_Z%&7] &f所处世界: &7%player_World%"
     enable: true
   save:
+    save-format: "X: %player_X%, Y: %player_Y%, Z: %player_Z%, World: %player_World%"
     description: "&8| &f!save [坐标名] &7- &f将此处坐标保存至服务器文件."
-    usage: "!save "
+    commands:
+      save: "!save "
+      del: "!del "
     message: "&8| &f成功保存坐标."
     enable: true

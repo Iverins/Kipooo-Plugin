@@ -129,11 +129,16 @@ public final class Kipooo extends JavaPlugin {
      * @return 替换后的文本
      */
     public static String replacePlayer(Player player , String text) {
+        String worldName = Kipooo.INSTANCE.config.getStringList("options.world-alias").contains(
+                player.getLocation().getWorld().getName()
+        ) ? player.getLocation().getWorld().getName() : Kipooo.toColor(
+                Kipooo.INSTANCE.config.getString("options.world-alias." + player.getLocation().getWorld().getName())
+        );
         return text.replaceAll("%player%" , player.getName())
                 .replaceAll("%player_X%" , String.valueOf(player.getLocation().getBlockX()))
                 .replaceAll("%player_Y" , String.valueOf(player.getLocation().getBlockY()))
                 .replaceAll("%player_Z" , String.valueOf(player.getLocation().getBlockZ()))
-                .replaceAll("%player_World" , String.valueOf(player.getLocation().getWorld().getName()));
+                .replaceAll("%player_World" , worldName);
     }
 
     /**

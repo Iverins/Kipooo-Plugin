@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface EssentialsModules {
+public interface EssentialsModules extends Listener {
 
     static List<Listener> modules = new ArrayList<>();
 
